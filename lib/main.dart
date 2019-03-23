@@ -1,10 +1,6 @@
-
 import 'package:doc_willie_ong/about.dart';
-import 'package:doc_willie_ong/favourites.dart';
 import 'package:doc_willie_ong/videos.dart';
-import 'package:doc_willie_ong/chat.dart';
 import 'package:flutter/material.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -31,12 +27,29 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin  {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
-    Tab(text: 'Videos', icon: Icon(Icons.featured_video),),
-    Tab(text: 'Favourites', icon:Icon(Icons.favorite)),
-    Tab(text: 'Chat', icon:Icon(Icons.chat)),
-    Tab(text: 'About', icon: Icon(Icons.person),),
+    Tab(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(Icons.featured_video),
+          SizedBox(width: 10,),
+          Text("Videos"),
+        ],
+      ),
+    ),
+    Tab(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(Icons.person),
+          SizedBox(width: 10,),
+          Text("About"),
+        ],
+      ),
+    ),
   ];
 
   TabController _tabController;
@@ -57,17 +70,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: Image.asset('images/small.png'),
         title: Text(widget.title),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(Icons.search),
-        //     tooltip: 'Search',
-        //     onPressed: () {
-        //       _tabController.animateTo(0);
-        //     },
-        //   ),
-        // ],
         bottom: TabBar(
           controller: _tabController,
           tabs: myTabs,
@@ -77,8 +80,6 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         controller: _tabController,
         children: <Widget>[
           Videos(),
-          Favourites(),
-          Chat(),
           About(),
         ],
       ),

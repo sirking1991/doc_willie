@@ -24,14 +24,7 @@ dependencies:
   cached_network_image:
   flutter_youtube:
 
-  # cupertino_icons: ^0.1.2
-
-  flutter_launcher_icons:
-
-flutter_icons:
-  image_path: "images/small.png"
-  android: true
-  ios: true
+  progress_indicators:
 
 dev_dependencies:
   flutter_test:
